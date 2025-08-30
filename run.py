@@ -555,6 +555,10 @@ def run(use_renderdoc: bool = False):
     ground_model = rl.load_model_from_mesh(ground_mesh)
     ground_position = rl.Vector3(0.0, -0.01, 0.0)
 
+    sphere_mesh = rl.gen_mesh_sphere(0.5, 32, 32)
+    sphere_model = rl.load_model_from_mesh(sphere_mesh)
+    sphere_position = rl.Vector3(0.0, 0.5, 0.0)
+
     # camera:
     camera = Camera()
     rl.rl_set_clip_planes(0.01, 50.0)
@@ -645,6 +649,9 @@ def run(use_renderdoc: bool = False):
         ground_model.materials[0].shader = shadow_shader
         rl.draw_model(ground_model, ground_position, 1.0, rl.WHITE)
 
+        sphere_model.materials[0].shader = shadow_shader
+        rl.draw_model(sphere_model, sphere_position, 1.0, rl.WHITE)
+
         end_shadow_map()
 
         # render to gbuffer:
@@ -691,6 +698,9 @@ def run(use_renderdoc: bool = False):
         # draw ground model:
         ground_model.materials[0].shader = basic_shader
         rl.draw_model(ground_model, ground_position, 1.0, rl.Color(190, 190, 190, 255))
+
+        sphere_model.materials[0].shader = basic_shader
+        rl.draw_model(sphere_model, sphere_position, 1.0, rl.ORANGE)
 
         # end drawing to gbuffer
         end_gbuffer(screen_width, screen_height)
