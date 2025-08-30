@@ -1,0 +1,21 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "setup launch",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/setup.py",
+            "args": [],
+            "console": "integratedTerminal"
+        },
+        {
+            "name": "run launch",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/run.py",
+            "args": [],
+            "console": "integratedTerminal"
+        },
+    ]
+}

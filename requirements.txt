@@ -1,0 +1,11 @@
+# python formatter
+black
+
+# numpy
+numpy
+
+# py renderdoc app
+pyRenderdocApp
+
+# python version of raylib
+raylib
